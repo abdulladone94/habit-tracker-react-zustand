@@ -15,7 +15,7 @@ const HabitList = () => {
             <Grid item xs={8}>
               <Typography variant="h6">{habit.name}</Typography>
               <Typography variant="body2" color="text.secondary">
-                {habit.name}
+                {habit.frequency}
               </Typography>
             </Grid>
             <Grid item xs={4}>

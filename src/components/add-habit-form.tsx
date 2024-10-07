@@ -36,7 +36,6 @@ const AddHabitForm = () => {
           fullWidth
         />
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-standard-label">Age</InputLabel>
           <Select
             value={frequency}
             label="frequency"
