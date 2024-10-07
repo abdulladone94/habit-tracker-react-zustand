@@ -4,7 +4,7 @@ import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlin
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 
 const HabitList = () => {
-  const { habits } = useHabitStore();
+  const { habits, removeHabit } = useHabitStore();
   const today = new Date().toISOString().split('T')[0];
 
   return (
@@ -35,6 +35,7 @@ const HabitList = () => {
                   variant="outlined"
                   color="error"
                   startIcon={<DeleteRoundedIcon />}
+                  onClick={() => removeHabit(habit.id)}
                 >
                   Remove
                 </Button>

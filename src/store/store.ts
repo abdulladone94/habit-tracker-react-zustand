@@ -11,6 +11,7 @@ export interface Habit {
 interface HabitState {
     habits: Habit[];
     addHabits: (name: string, frequency: "daily" | "weekly") => void;
+    removeHabit: (id: string) => void;
 }
 
 const useHabitStore = create<HabitState>()((set) => {
@@ -29,8 +30,11 @@ const useHabitStore = create<HabitState>()((set) => {
                     }
                     ]
                 };
-            })
-
+            }),
+        removeHabit: (id) =>
+            set((state) => ({
+                habits: state.habits.filter((habit) => habit.id !== id),
+            })),
     };
 });
 
