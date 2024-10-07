@@ -4,7 +4,7 @@ import CheckCircleOutlineRoundedIcon from '@mui/icons-material/CheckCircleOutlin
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 
 const HabitList = () => {
-  const { habits, removeHabit } = useHabitStore();
+  const { habits, removeHabit, toggleHabits } = useHabitStore();
   const today = new Date().toISOString().split('T')[0];
 
   return (
@@ -26,6 +26,7 @@ const HabitList = () => {
                     habit.completedDates.includes(today) ? 'success' : 'primary'
                   }
                   startIcon={<CheckCircleOutlineRoundedIcon />}
+                  onClick={() => toggleHabits(habit.id, today)}
                 >
                   {habit.completedDates.includes(today)
                     ? 'Completed'
