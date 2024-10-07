@@ -5,16 +5,32 @@ export interface Habit {
     name: string,
     frequency: "daily" | "weekly",
     completedDates: string[],
-    completedAt: string;
+    createdAt: string;
 }
 
 interface HabitState {
     habits: Habit[];
+    addHabits: (name: string, frequency: "daily" | "weekly") => void;
 }
 
-const useHabitStore = create<HabitState>(() => {
+const useHabitStore = create<HabitState>()((set) => {
     return {
-        habits: []
+        habits: [],
+        addHabits: (name, frequency) =>
+            set((state) => {
+                return {
+                    habits: [...state.habits,
+                    {
+                        id: Date.now().toString(),
+                        name,
+                        frequency,
+                        completedDates: [],
+                        createdAt: new Date().toISOString()
+                    }
+                    ]
+                };
+            })
+
     };
 });
 

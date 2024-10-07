@@ -5,7 +5,7 @@ import AddHabitForm from './components/add-habit-form';
 
 function App() {
   const store = useHabitStore();
-  console.log(store);
+  // console.log(store);
   return (
     <Container>
       <Box>
